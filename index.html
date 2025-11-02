@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mini Maps with Dijkstra</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mini Maps with Dijkstra</h1>
+      <div class="controls">
+        <button id="resetBtn" title="Clear start/end and route">Reset</button>
+        <label><input type="checkbox" id="showGraph"> Show graph</label>
+        <label title="Build graph from OpenStreetMap roads for current view (beta)"><input type="checkbox" id="useRoads"> Use roads</label>
+        <label title="Penalize unpaved (gravel/dirt) segments during routing; roads are color-coded"><input type="checkbox" id="avoidUnpaved"> Avoid unpaved</label>
+        <div class="search">
+          <input id="placeSearch" type="search" placeholder="Search place (Nominatim)" autocomplete="off" />
+          <div id="searchResults" class="search-results" hidden></div>
+        </div>
+        <span id="status">Click on the map to pick start, then end.</span>
+      </div>
+    </header>
+
+    <div id="map"></div>
+
+    <footer>
+      <div>
+        <strong>Route distance:</strong> <span id="distance">–</span>
+      </div>
+      <div class="hint">
+        Powered by Leaflet + OpenStreetMap tiles. This demo routes on a small synthetic graph (grid) for simplicity.
+      </div>
+    </footer>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
